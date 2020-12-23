@@ -19,6 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let visit = UserDefaults.standard.bool(forKey: "First")
+        
+        if visit{
+            print("not first")
+        } else {
+            UserDefaults.standard.set(true, forKey: "First")
+        }
+        
+        print(visit)
+        
+      //  UserDefaults.standard.set(false, forKey: "notFirst")
+        
+//        if userDefaults == true{
+//            firstVisit = false
+//        }else{
+//            firstVisit = true
+//        }
+        
        // FirebaseApp.configure()
         
         

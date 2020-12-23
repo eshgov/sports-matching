@@ -15,14 +15,16 @@ class User {
     var sport: String
     var distance: Double
     var level: String
+    var description: String
     var documentId: String
     
-    init(image: UIImage, name: String, sport: String, distance: Double, level: String, documentId: String) {
+    init(image: UIImage, name: String, sport: String, distance: Double, level: String, description:String, documentId: String) {
         self.image = image
         self.name = name
         self.sport = sport
         self.distance = distance
         self.level = level
+        self.description = description
         self.documentId = documentId
     }
     

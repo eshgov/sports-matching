@@ -67,14 +67,38 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
                 self.errorLabel.alpha = 1
             } else {
                
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: constants.Storyboard.homeViewController) as? HomeViewController
+//                let homeViewController = self.storyboard?.instantiateViewController(identifier: constants.Storyboard.homeViewController) as? HomeViewController
                 
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
+//                self.view.window?.rootViewController = homeViewController
+//                self.view.window?.makeKeyAndVisible()
                 
+                let isFirst = UserDefaults.standard.bool(forKey: "First")
+                func hasLocationPermission() -> Bool {
+                       var hasPermission = false
+                       if CLLocationManager.locationServicesEnabled() {
+                           switch CLLocationManager.authorizationStatus() { // <= 'authorizationStatus()' was deprecated in iOS 14.0
+                           case .notDetermined, .restricted, .denied:
+                               hasPermission = false
+                           case .authorizedAlways, .authorizedWhenInUse:
+                               hasPermission = true
+                           @unknown default:
+                               hasPermission = false
+                             }
+                       } else {
+                            hasPermission = false
+                       }
+                        return hasPermission
+                }
                 
+                if isFirst == false && hasLocationPermission(){
+                    self.performSegue(withIdentifier: "loginToHome", sender: nil)
+                } else {
+                    UserDefaults.standard.set(false, forKey: "First")
+                    self.performSegue(withIdentifier: "loginToLocation", sender: nil)
+                }
             }
         }
+            
         
     }
     

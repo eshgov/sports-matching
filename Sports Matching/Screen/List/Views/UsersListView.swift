@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import MapKit
 
 class UsersListView: UIViewController {
     
@@ -20,7 +21,6 @@ class UsersListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //users = createArray()
         
         if FirebaseApp.app() == nil {
             FirebaseApp.configure()
@@ -41,35 +41,16 @@ class UsersListView: UIViewController {
                     let sport = data["sport"] as? String ?? "Sport"
                     let distance = data["distance"] as? Double ?? 0
                     let level = data["level"] as? String ?? "Level"
+                    let description = data["description"] as? String ?? "Description"
                     let documentId = document.documentID
                     
-                    let newUser = User(image: UIImage(named: "image-placeholder")!, name: name, sport: sport, distance: distance, level: level, documentId: documentId)
+                    let newUser = User(image: UIImage(named: "image-placeholder")!, name: name, sport: sport, distance: distance, level: level, description: description, documentId: documentId)
                     self.users.append(newUser)
                 }
                 self.tableView.reloadData()
             }
         }
     }
-    
-    
-    
-   /* func createArray() -> [User] {
-        var tempUsers: [User] = []
-        
-        let user1 = User(image: UIImage(named: "image-placeholder")!, name: "Eshaan", sport: "Cricket", distance: 0.1, level: "Advanced")
-        let user2 = User(image: UIImage(named: "image-placeholder")!, name: "Smita", sport: "Tennis", distance: 0.3, level: "Intermediate")
-        let user3 = User(image: UIImage(named: "image-placeholder")!, name: "Nike", sport: "Tennis", distance: 0.2, level: "Beginner")
-        let user4 = User(image: UIImage(named: "image-placeholder")!, name: "Deepak", sport: "Golf", distance: 1.2, level: "Intermediate")
-        let user5 = User(image: UIImage(named: "image-placeholder")!, name: "Example", sport: "test", distance: 1.2, level: "Intermediate")
-        
-        tempUsers.append(user1)
-        tempUsers.append(user2)
-        tempUsers.append(user3)
-        tempUsers.append(user4)
-        tempUsers.append(user5)
-        
-        return tempUsers
-    } */
 }
     
 extension UsersListView: UITableViewDataSource, UITableViewDelegate {
@@ -86,5 +67,14 @@ extension UsersListView: UITableViewDataSource, UITableViewDelegate {
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "DetailsUserViewController") as? DetailsUserViewController
+        
+        vc?.userData = self.users[indexPath.row]
+        
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

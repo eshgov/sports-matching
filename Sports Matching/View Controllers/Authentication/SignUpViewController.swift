@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UserDefaults.standard.set(true, forKey: "First")
         // Do any additional setup after loading the view.
         setUpElements()
     }
@@ -74,7 +74,7 @@ class SignUpViewController: UIViewController {
                                 }
                             }
                             // transition to home screen
-                            //self.performSegue(withIdentifier: "singupToLocation", sender: nil)
+                            self.performSegue(withIdentifier: "signupToHome", sender: nil)
                         }
             }
             

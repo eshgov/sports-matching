@@ -71,7 +71,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
                 
 //                self.view.window?.rootViewController = homeViewController
 //                self.view.window?.makeKeyAndVisible()
-                
+   /*
                 let isFirst = UserDefaults.standard.bool(forKey: "First")
                 func hasLocationPermission() -> Bool {
                        var hasPermission = false
@@ -89,13 +89,15 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
                        }
                         return hasPermission
                 }
-                
+                */
+                self.performSegue(withIdentifier: "loginToHome", sender: nil)
+                /*
                 if isFirst == false && hasLocationPermission(){
                     self.performSegue(withIdentifier: "loginToHome", sender: nil)
                 } else {
-                    UserDefaults.standard.set(false, forKey: "First")
                     self.performSegue(withIdentifier: "loginToLocation", sender: nil)
                 }
+ */
             }
         }
             

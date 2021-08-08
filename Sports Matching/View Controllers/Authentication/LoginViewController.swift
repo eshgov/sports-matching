@@ -105,4 +105,10 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 }
+    
+    @IBAction func forgotPassButton_Tapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toForgotPassword", sender: nil)
+    
+    }
+    
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		891AF7C62537F3210084EFE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891AF7C52537F3210084EFE9 /* Constants.swift */; };
+		892F3A0326A158CD00CE3AE6 /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F3A0226A158CD00CE3AE6 /* ForgotPassViewController.swift */; };
 		893901E72540507300DEA58D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893901E62540507300DEA58D /* User.swift */; };
 		893901E92540742D00DEA58D /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893901E82540742D00DEA58D /* UsersListView.swift */; };
 		895CDD462537293000D72474 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 895CDD452537293000D72474 /* GoogleService-Info.plist */; };
@@ -38,6 +39,7 @@
 		3795777EB76210CC5835750B /* Pods-Sports Matching.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sports Matching.debug.xcconfig"; path = "Target Support Files/Pods-Sports Matching/Pods-Sports Matching.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA0B69CB10A81C0F6567DB0 /* libPods-Sports Matching.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sports Matching.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		891AF7C52537F3210084EFE9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		892F3A0226A158CD00CE3AE6 /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		893901E62540507300DEA58D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		893901E82540742D00DEA58D /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		895CDD452537293000D72474 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				895CDD4725373C0400D72474 /* SignUpViewController.swift */,
 				895CDD4925373C1A00D72474 /* LoginViewController.swift */,
+				892F3A0226A158CD00CE3AE6 /* ForgotPassViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892F3A0326A158CD00CE3AE6 /* ForgotPassViewController.swift in Sources */,
 				895CDD4A25373C1A00D72474 /* LoginViewController.swift in Sources */,
 				895CDD4825373C0400D72474 /* SignUpViewController.swift in Sources */,
 				89ADCFF225399C9600FBF199 /* UserTableViewCell.swift in Sources */,

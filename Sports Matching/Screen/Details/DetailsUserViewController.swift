@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class DetailsUserViewController: UIViewController {
 
@@ -23,25 +24,40 @@ class DetailsUserViewController: UIViewController {
     
     var userData: User?
     
-    /*
-    var name = userData?.name as? String ?? "Name"
-    var sport = userData?.sport as? String ?? "Sport"
-    var level = userData?.level as? String ?? "Level"
-    var distance: Double = userData?.distance as? String ?? "Distance"
-    */
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         userName.text = userData?.name ?? "Name"
         userSport.text = userData?.sport ?? "Sport"
         userLevel.text = userData?.level ?? "Level"
-        userDistance.text = "\(userData?.distance ?? 0.0) km"
+        userDistance.text = "\(Int(userData?.distance ?? 0)) km"
         userDescription.text = "\(userData?.description ?? "User Description.")"
+        
+        self.mapView.mapType = MKMapType.standard
+      
+        let center = CLLocationCoordinate2D(latitude: userData?.location.latitude ?? 0, longitude: userData?.location.longitude ?? 0)
+              let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+              self.mapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = userData!.location
+            annotation.title = "User's Location"
+            //annotation.subtitle = "current location"
+            mapView.addAnnotation(annotation)
+       //     mapView.showAnnotations([MKAnnotation], animated: true)(annotation)
         
         
         
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func contactTapped(_ sender: Any) {
+        let vc = ChatViewController(with: userData!.email)
+        vc.isNewConversation = true
+        vc.otherUserData = userData
+        vc.title = userData?.name ?? "Name"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
 }

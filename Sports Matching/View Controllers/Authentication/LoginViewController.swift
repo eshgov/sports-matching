@@ -11,6 +11,7 @@ import Firebase
 import MapKit
 import CoreLocation
 
+
 class LoginViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -61,54 +62,28 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+          
             if error != nil {
                 // Couldn't Sign in
                 self.errorLabel.text = error!.localizedDescription
                 self.errorLabel.alpha = 1
-            } else {
-               
-//                let homeViewController = self.storyboard?.instantiateViewController(identifier: constants.Storyboard.homeViewController) as? HomeViewController
                 
-//                self.view.window?.rootViewController = homeViewController
-//                self.view.window?.makeKeyAndVisible()
-   /*
-                let isFirst = UserDefaults.standard.bool(forKey: "First")
-                func hasLocationPermission() -> Bool {
-                       var hasPermission = false
-                       if CLLocationManager.locationServicesEnabled() {
-                           switch CLLocationManager.authorizationStatus() { // <= 'authorizationStatus()' was deprecated in iOS 14.0
-                           case .notDetermined, .restricted, .denied:
-                               hasPermission = false
-                           case .authorizedAlways, .authorizedWhenInUse:
-                               hasPermission = true
-                           @unknown default:
-                               hasPermission = false
-                             }
-                       } else {
-                            hasPermission = false
-                       }
-                        return hasPermission
-                }
-                */
-                self.performSegue(withIdentifier: "loginToHome", sender: nil)
-                /*
-                if isFirst == false && hasLocationPermission(){
-                    self.performSegue(withIdentifier: "loginToHome", sender: nil)
-                } else {
-                    self.performSegue(withIdentifier: "loginToLocation", sender: nil)
-                }
- */
+            } else {
+               // self.performSegue(withIdentifier: "loginToHome", sender: nil)
+                //let vc = UsersListView()
+                let vc = self.storyboard?.instantiateViewController(identifier: "usersListView") as! UINavigationController
+                //self.navigationController?.pushViewController(vc, animated: true)
+                self.present(vc, animated: true, completion: nil)
             }
         }
-            
-        
     }
-    
 }
     
     @IBAction func forgotPassButton_Tapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "toForgotPassword", sender: nil)
-    
+       // self.performSegue(withIdentifier: "toForgotPassword", sender: nil)
+       // let vc = ForgotPassViewController()
+        let vc = self.storyboard?.instantiateViewController(identifier: "forgotPassViewController") as! ForgotPassViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

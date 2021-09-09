@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="of5-HD-uni">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8lT-w8-FQL">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Forgot Pass View Controller-->
+        <!--View Controller-->
         <scene sceneID="9CD-9h-fHO">
             <objects>
-                <viewController id="VX0-RX-8Lj" customClass="ForgotPassViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VX0-RX-8Lj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MKN-pr-1pC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CmR-Wv-lsP">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="224"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="224"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhL-QV-gqw">
                                         <rect key="frame" x="16" y="8" width="358" height="30"/>
@@ -123,12 +123,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMU-x6-GOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="wRV-TH-sha" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-1273"/>
+            <point key="canvasLocation" x="-929" y="1655"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,8 +277,11 @@
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="W2x-bD-l7j">
                                         <rect key="frame" x="8" y="470" width="374" height="250"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SG0-GX-ax5">
-                                                <rect key="frame" x="168" y="8" width="38" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SG0-GX-ax5">
+                                                <rect key="frame" x="24" y="8" width="326" height="91"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="67" id="aaI-bD-nX3"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -286,8 +289,9 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="SG0-GX-ax5" firstAttribute="top" secondItem="W2x-bD-l7j" secondAttribute="top" constant="25" id="88R-SB-eCH"/>
-                                            <constraint firstItem="SG0-GX-ax5" firstAttribute="centerX" secondItem="W2x-bD-l7j" secondAttribute="centerX" id="LeT-oe-Uhe"/>
+                                            <constraint firstItem="SG0-GX-ax5" firstAttribute="top" secondItem="W2x-bD-l7j" secondAttribute="topMargin" id="F9x-7n-x8i"/>
+                                            <constraint firstItem="SG0-GX-ax5" firstAttribute="centerX" secondItem="W2x-bD-l7j" secondAttribute="centerX" id="Wub-14-eoi"/>
+                                            <constraint firstItem="SG0-GX-ax5" firstAttribute="trailing" secondItem="W2x-bD-l7j" secondAttribute="trailingMargin" id="zec-rN-A8v"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
                                     </view>
@@ -335,19 +339,17 @@
                         <outlet property="errorLabel" destination="SG0-GX-ax5" id="h8N-NN-aWm"/>
                         <outlet property="loginButton" destination="wxw-wS-I7z" id="vly-0e-J7J"/>
                         <outlet property="passwordTextField" destination="2qA-y9-chS" id="O1U-yB-w67"/>
-                        <segue destination="KhS-aH-4hI" kind="show" identifier="loginToHome" id="4zb-2i-4aW"/>
-                        <segue destination="VX0-RX-8Lj" kind="show" identifier="toForgotPassword" id="5lF-Ix-JiL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="agi-kq-i4n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-427"/>
+            <point key="canvasLocation" x="1723.0769230769231" y="-427.25118483412319"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="aOR-Yb-EHC">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="of5-HD-uni" customClass="MenuViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuViewController" modalPresentationStyle="fullScreen" id="of5-HD-uni" customClass="MenuViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bLc-EY-g9u">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -371,7 +373,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="MRm-nF-LSN"/>
+                                            <action selector="loginTapped:" destination="of5-HD-uni" eventType="touchUpInside" id="fVw-2i-iyE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVs-f3-DbK">
@@ -387,7 +389,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="nGF-W2-43d" kind="show" id="jvt-Ey-zR8"/>
+                                            <action selector="signupTapped:" destination="of5-HD-uni" eventType="touchUpInside" id="Lar-jn-sEj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -410,18 +412,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wH7-Co-9yE"/>
-                    <connections>
-                        <segue destination="KhS-aH-4hI" kind="show" identifier="menuToHome" id="jmI-AI-fw5"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="enf-Zo-vLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-172.46376811594203" y="214.95535714285714"/>
+            <point key="canvasLocation" x="755.38461538461536" y="214.69194312796208"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="LKc-qQ-WCj">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="nGF-W2-43d" customClass="SignUpViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signupViewController" modalPresentationStyle="fullScreen" id="nGF-W2-43d" customClass="SignUpViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CmZ-DF-lFI">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,13 +592,12 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="signUpTapped:" destination="nGF-W2-43d" eventType="touchUpInside" id="ttH-4V-jgu"/>
-                                            <segue destination="KhS-aH-4hI" kind="show" identifier="signupToHome" id="kPK-Mt-6mj"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="nkq-Rb-20i">
                                         <rect key="frame" x="16" y="469" width="358" height="295"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HB-Pw-50i">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HB-Pw-50i">
                                                 <rect key="frame" x="160.33333333333334" y="23" width="37.666666666666657" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -662,7 +660,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJ9-kY-EOd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gT1-F4-KwM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="748" y="817"/>
+            <point key="canvasLocation" x="1675.3846153846152" y="816.82464454976298"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="Nq1-pD-hhN">
@@ -753,12 +751,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13n-Pp-Cat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1796" y="1150"/>
+            <point key="canvasLocation" x="-174" y="1655"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="kCq-pU-uAl">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Hpm-66-bdf" customClass="SettingsViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsViewController" modalPresentationStyle="fullScreen" id="Hpm-66-bdf" customClass="SettingsViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TWH-eN-hnZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -812,7 +810,6 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="handleApply:" destination="Hpm-66-bdf" eventType="touchUpInside" id="npD-M2-MxY"/>
                                                     <action selector="resetPassButton_Tapped:" destination="Hpm-66-bdf" eventType="touchUpInside" id="hwd-Tk-UpR"/>
                                                 </connections>
                                             </button>
@@ -943,6 +940,7 @@
                             <constraint firstItem="Agv-3u-Vyr" firstAttribute="top" secondItem="oXr-7n-BlS" secondAttribute="top" id="dpG-Ka-lYp"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="lblName" destination="W3H-Fv-lQ9" id="33c-vZ-ybU"/>
                         <outlet property="sldLevel" destination="oaZ-YP-1WI" id="7t8-WG-l9N"/>
@@ -950,8 +948,6 @@
                         <outlet property="txtDescription" destination="peT-0l-VvW" id="Nx6-IB-pap"/>
                         <outlet property="txtEmail" destination="XEg-pg-gef" id="qIp-HB-UMq"/>
                         <outlet property="txtName" destination="RqL-dO-fLy" id="JMR-Mr-JSa"/>
-                        <segue destination="of5-HD-uni" kind="show" identifier="signoutSegue" id="nyf-v8-kIf"/>
-                        <segue destination="hh6-S2-g0q" kind="show" identifier="toResetPassword" id="xOf-er-GvA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZU-Zh-Icv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -962,13 +958,13 @@
         <!--Users Nearby-->
         <scene sceneID="U6R-Cc-z4Z">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" modalPresentationStyle="fullScreen" id="lTw-Yq-66Y" customClass="UsersListView" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="usersListTableView" modalPresentationStyle="fullScreen" id="lTw-Yq-66Y" customClass="UsersListView" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c3x-9d-jEL">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9sP-xp-haB">
-                                <rect key="frame" x="0.0" y="56" width="390" height="700"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="232" id="nvz-Zv-yPy" customClass="UserTableViewCell" customModule="Sports_Matching" customModuleProvider="target">
@@ -1085,7 +1081,7 @@
                     <navigationItem key="navigationItem" title="Users Nearby" largeTitleDisplayMode="always" id="9y1-W3-BkN">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="MB4-7f-cmw" userLabel="Settings">
                             <connections>
-                                <segue destination="Hpm-66-bdf" kind="presentation" identifier="homeToSettings" id="QmA-Ok-6Z3"/>
+                                <action selector="tappedProfile:" destination="lTw-Yq-66Y" id="Bd7-H8-5sF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1095,7 +1091,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Na2-DJ-GO5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3636" y="215"/>
+            <point key="canvasLocation" x="4564.6153846153848" y="214.69194312796208"/>
         </scene>
         <!--User-->
         <scene sceneID="MVp-Sb-2d1">
@@ -1261,6 +1257,9 @@
                                                                 <integer key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="contactTapped:" destination="9Hc-th-hrS" eventType="touchUpInside" id="6Vh-Vb-J0i"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="8" left="16" bottom="8" right="16"/>
@@ -1309,12 +1308,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbN-3s-cBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4448" y="215"/>
+            <point key="canvasLocation" x="5376.9230769230771" y="214.69194312796208"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="vBq-pz-npp">
+            <objects>
+                <viewController storyboardIdentifier="chatViewController" id="gGg-E3-izz" customClass="ChatViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6dD-Pg-Gk3">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Tf5-Er-3Ze"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RVn-Jb-CX0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6208" y="215"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z2t-RT-nxW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="KhS-aH-4hI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="usersListView" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="KhS-aH-4hI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="sUy-p4-thU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="sAI-AI-RoA">
@@ -1332,18 +1346,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mTX-EL-aio" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="215"/>
+            <point key="canvasLocation" x="3653.8461538461538" y="214.69194312796208"/>
         </scene>
         <!--Forgot Pass View Controller-->
         <scene sceneID="Zz3-dB-w1k">
             <objects>
-                <viewController id="hh6-S2-g0q" customClass="ForgotPassViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="forgotPassViewController" id="hh6-S2-g0q" customClass="ForgotPassViewController" customModule="Sports_Matching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DYD-VJ-nAK">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="J0i-lh-sjz">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="224"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="224"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eFc-03-MRY">
                                         <rect key="frame" x="16" y="8" width="358" height="30"/>
@@ -1446,11 +1460,26 @@
             </objects>
             <point key="canvasLocation" x="2960" y="-1627"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5g6-6l-oYI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8lT-w8-FQL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ogJ-Rz-b6q">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="of5-HD-uni" kind="relationship" relationship="rootViewController" id="tNh-rR-Yeg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUk-HQ-kbn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-173.84615384615384" y="214.69194312796208"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2O7-qy-xkE"/>
         <segue reference="HEo-TS-duv"/>
-        <segue reference="tCp-f4-QBr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="distance-pin" width="512" height="512"/>

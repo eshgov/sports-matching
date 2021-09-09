@@ -11,6 +11,10 @@ import Firebase
 
 class SettingsViewController: UIViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -54,13 +58,15 @@ class SettingsViewController: UIViewController {
 // button handling
     @IBAction func handleLogout (_ target: UIButton){
         try! Auth.auth().signOut()
-        self.performSegue(withIdentifier: "signoutSegue", sender: nil)
+        //self.performSegue(withIdentifier: "signoutSegue", sender: nil)
+        let vc = self.storyboard?.instantiateViewController(identifier: "menuViewController") as! MenuViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func handleApply(_ sender: Any) {
         // get input values
         let name = txtName.text
-        //let email = txtEmail.text
+        let email = txtEmail.text!
        // let sport = txtSport.text
        
         let levelNumber = sldLevel.value
@@ -90,8 +96,17 @@ class SettingsViewController: UIViewController {
             "levelNumber" : levelNumber,
             "description" : description!,
            // "locationPermission" : locationPermission,
-            "coach" : userType
+            "coach" : userType,
+            "email" : email
         ], merge: true)
+        
+        Auth.auth().currentUser?.updateEmail(to: email) { error in
+            if error != nil {
+                // An error happened
+            } else {
+               // Email updated.
+               }
+            }
         
     }
 
@@ -105,7 +120,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var swtCoach: UISwitch!
     
     @IBAction func resetPassButton_Tapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "toResetPassword", sender: nil)
+       // self.performSegue(withIdentifier: "toResetPassword", sender: nil)
+        let vc = self.storyboard?.instantiateViewController(identifier: "forgotPassViewController") as! ForgotPassViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

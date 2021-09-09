@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class User {
     var image: UIImage
@@ -18,8 +19,10 @@ class User {
     var description: String
     var documentId: String
     var isCoach: Bool
+    var location: CLLocationCoordinate2D
+    var email: String
     
-    init(image: UIImage, name: String, sport: String, distance: Double, level: String, description:String, documentId: String, isCoach: Bool) {
+    init(image: UIImage, name: String, sport: String, distance: Double, level: String, description:String, documentId: String, isCoach: Bool, location: CLLocationCoordinate2D, email: String) {
         self.image = image
         self.name = name
         self.sport = sport
@@ -28,6 +31,7 @@ class User {
         self.description = description
         self.documentId = documentId
         self.isCoach = isCoach
+        self.location = location
+        self.email = email
     }
-    
 }

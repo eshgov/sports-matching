@@ -21,7 +21,7 @@ class UserTableViewCell: UITableViewCell {
         userImageView.image = user.image
         userNameLabel.text = user.name
         sportLabel.text = user.sport
-        locationLabel.text = user.distance.description
+        locationLabel.text = Int(user.distance).description
         levelLabel.text = user.level
     }
     

@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please allow access to select a photo for your profile.</string>
+	<string>This app wants to save photos to your photo library.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow access to take a profile picture.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow access to select a photo for your profile.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to show nearby users.</string>
 	<key>NSLocationAlwaysUsageDescription</key>

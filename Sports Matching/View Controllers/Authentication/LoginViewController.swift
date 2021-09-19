@@ -24,9 +24,6 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         setUpElements()
     }
 
@@ -69,10 +66,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
                 self.errorLabel.alpha = 1
                 
             } else {
-               // self.performSegue(withIdentifier: "loginToHome", sender: nil)
-                //let vc = UsersListView()
                 let vc = self.storyboard?.instantiateViewController(identifier: "usersListView") as! UINavigationController
-                //self.navigationController?.pushViewController(vc, animated: true)
                 self.present(vc, animated: true, completion: nil)
             }
         }
@@ -80,9 +74,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
 }
     
     @IBAction func forgotPassButton_Tapped(_ sender: Any) {
-       // self.performSegue(withIdentifier: "toForgotPassword", sender: nil)
-       // let vc = ForgotPassViewController()
-        let vc = self.storyboard?.instantiateViewController(identifier: "forgotPassViewController") as! ForgotPassViewController
+        let vc = self.storyboard?.instantiateViewController(identifier: "loginForgotPassViewController") as! ForgotPassViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     

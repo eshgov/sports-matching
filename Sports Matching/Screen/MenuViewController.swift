@@ -27,7 +27,7 @@ class MenuViewController: UIViewController {
 //            navigationController?.pushViewController(vc, animated: true)
 //        }
         
-       Auth.auth().addStateDidChangeListener { auth, user in
+      /* Auth.auth().addStateDidChangeListener { auth, user in
           if let user = user {
             // User is signed in. Show home screen
            // let vc = UsersListView()
@@ -37,7 +37,7 @@ class MenuViewController: UIViewController {
           } else {
             // No User is signed in. Show user the login screen
           }
-        }
+        }*/
     }
     
     @IBAction func loginTapped(_ sender: Any) {

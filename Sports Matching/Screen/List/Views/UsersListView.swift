@@ -49,6 +49,7 @@ class UsersListView: UIViewController{
     private var locValue: CLLocation! = CLLocation(latitude: 11.5564, longitude: 104.9282)
     private var handle: AuthStateDidChangeListenerHandle?
     public var uid: String! = Auth.auth().currentUser?.uid
+    private var currentUserLevel: Double!
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -114,28 +115,36 @@ class UsersListView: UIViewController{
                     let data = document.data()
                     
                     self.isUserCoach = data?["coach"] as? Bool ?? false
+                    self.currentUserLevel = data?["levelNumber"] as? Double ?? 0
                     
                     if (self.isUserCoach) {
+                        // current user is a coach
                         self.userTypeString = "coaches"
                         self.wantCoachView = false
                         print("user is a coach")
+                        self.title = "Students Nearby"
                     } else {
+                        // current user is a student
                         self.userTypeString = "children"
                         self.wantCoachView = true
                         print("user is a child")
+                        self.title = "Coaches Nearby"
                     }
                 } else {
                     print("document doesn't exist.")
-                    //self.performSegue(withIdentifier: "homeToSettings", sender: nil)
-                    // let vc = self.storyboard?.instantiateViewController(identifier: "settingsViewController") as! SettingsViewController
-                    //  let vc = SettingsViewController()
-                    // self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
         }
+        
+        
         // SEARCH IMPLEMENTATION
         navigationItem.searchController = searchController
     }
+    
+    //self.performSegue(withIdentifier: "homeToSettings", sender: nil)
+    // let vc = self.storyboard?.instantiateViewController(identifier: "settingsViewController") as! SettingsViewController
+    //  let vc = SettingsViewController()
+    // self.navigationController?.pushViewController(vc, animated: true)
 
     // end of viewDidLoad()
     
@@ -182,22 +191,10 @@ class UsersListView: UIViewController{
                     let description = data["description"] as? String ?? "Description"
                     let documentId = document.documentID
                     let email = data["email"] as? String ?? "email"
+                    let photoURL = data["imageURL"] as? String ?? ""
                     
                     let location = CLLocationCoordinate2D(latitude: (data["latitude"] as? CLLocationDegrees ?? 0), longitude: (data["longitude"] as? CLLocationDegrees ?? 0) )
-                    print(location)
-                    
-                    let getLocation = GetLocation()
-                    
-                    getLocation.run {
-                        if let location = $0 {
-                            
-                            self.locValue = location
-                            
-                        } else {
-                            print("Get Location failed \(String(describing: getLocation.didFailWithError))")
-                        }
-                    }
-                    
+                   
                     let distance = self.locValue.distance(from: CLLocation(latitude: location.latitude, longitude: location.longitude)) / 1000
                     print(distance)
                     
@@ -206,19 +203,39 @@ class UsersListView: UIViewController{
                     if newUser.isCoach == self.wantCoachView{
                         self.users.append(newUser)
                         print("User added to table array.")
-                        
                     }
-                    
-                }
-                self.users = self.users.sorted {
-                    $0.distance < $1.distance
+                    self.users = self.users.sorted {
+                        $0.distance < $1.distance
+                    }
                 }
                 self.tableView.reloadData()
             }
         }
     }
-    
 }
+
+
+
+
+
+
+
+
+/*
+ print(location)
+
+let getLocation = GetLocation()
+
+getLocation.run {
+    if let location = $0 {
+        self.locValue = location
+        
+    } else {
+        print("Get Location failed \(String(describing: getLocation.didFailWithError))")
+    }
+}
+*/
+
 
 extension UsersListView: UISearchBarDelegate {
     

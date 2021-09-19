@@ -15,7 +15,6 @@ class DetailsUserViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var detailsUserView: DetailsUserView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userSport: UILabel!
     @IBOutlet weak var userLevel: UILabel!
     @IBOutlet weak var userDistance: UILabel!
     @IBOutlet weak var userDescription: UILabel!
@@ -27,7 +26,6 @@ class DetailsUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userName.text = userData?.name ?? "Name"
-        userSport.text = userData?.sport ?? "Sport"
         userLevel.text = userData?.level ?? "Level"
         userDistance.text = "\(Int(userData?.distance ?? 0)) km"
         userDescription.text = "\(userData?.description ?? "User Description.")"
@@ -41,13 +39,7 @@ class DetailsUserViewController: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = userData!.location
             annotation.title = "User's Location"
-            //annotation.subtitle = "current location"
             mapView.addAnnotation(annotation)
-       //     mapView.showAnnotations([MKAnnotation], animated: true)(annotation)
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func contactTapped(_ sender: Any) {

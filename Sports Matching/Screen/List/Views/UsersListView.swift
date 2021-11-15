@@ -1,11 +1,3 @@
-//
-//  UsersListView.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 21/10/20.
-//  Copyright © 2020 Eshaan Govil. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import MapKit
@@ -13,7 +5,6 @@ import CoreLocation
 
 
 class UsersListView: UIViewController{
-    
     
     @IBAction func tappedProfile(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(identifier: "settingsViewController") as! SettingsViewController
@@ -38,8 +29,6 @@ class UsersListView: UIViewController{
         return sc
     }()
     
-    
-    // var locationManager: CLLocationManager?
     @IBOutlet weak var tableView: UITableView!
     private var usersCollectionRef: CollectionReference = Firestore.firestore().collection("users")
     private var users = [User]()
@@ -72,23 +61,14 @@ class UsersListView: UIViewController{
                 let userLatitude = location.coordinate.latitude
                 let userLongitude = location.coordinate.longitude
                 
-                
                 let db = Firestore.firestore()
-                
                 db.collection("users").document(self.uid).setData(["latitude":"\(userLatitude)","longitude":"\(userLongitude)"], merge: true)
                 
                 self.locValue = location
-                
             } else {
                 print("Get Location failed \(String(describing: getLocation.didFailWithError))")
             }
         }
-        
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        //Auth.auth().removeStateDidChangeListener(handle!)
     }
     
     override func viewDidLoad() {
@@ -111,7 +91,6 @@ class UsersListView: UIViewController{
                     print("document exists in updated branch. \(self.uid!)")
                     
                     // check if user is coach or child if exists
-                    
                     let data = document.data()
                     
                     self.isUserCoach = data?["coach"] as? Bool ?? false
@@ -135,21 +114,11 @@ class UsersListView: UIViewController{
                 }
             }
         }
-        
-        
         // SEARCH IMPLEMENTATION
         navigationItem.searchController = searchController
     }
     
-    //self.performSegue(withIdentifier: "homeToSettings", sender: nil)
-    // let vc = self.storyboard?.instantiateViewController(identifier: "settingsViewController") as! SettingsViewController
-    //  let vc = SettingsViewController()
-    // self.navigationController?.pushViewController(vc, animated: true)
-
-    // end of viewDidLoad()
-    
     func filterContentForSearchText(searchText: String, scope: String = "All"){
-        // add parameter 'scope: String = "All"' when having sections
         filteredUsers = users.filter({ (user: User) -> Bool in
             let doesCategoryMatch = (scope == "All") || (user.level == scope)
             
@@ -180,7 +149,7 @@ class UsersListView: UIViewController{
             } else {
                 guard let snap = snapshot else {return}
                 self.users.removeAll()
-
+                
                 for document in snap.documents {
                     
                     let data = document.data()
@@ -194,7 +163,7 @@ class UsersListView: UIViewController{
                     let photoURL = data["photoURL"] as? String ?? ""
                     
                     let location = CLLocationCoordinate2D(latitude: (data["latitude"] as? CLLocationDegrees ?? 0), longitude: (data["longitude"] as? CLLocationDegrees ?? 0) )
-                   
+                    
                     let distance = self.locValue.distance(from: CLLocation(latitude: location.latitude, longitude: location.longitude)) / 1000
                     print(distance)
                     

@@ -1,61 +1,8 @@
-//
-//  SettingsViewController.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 2/1/21.
-//  Copyright © 2021 Eshaan Govil. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import TinyConstraints
 
 class SettingsViewController: UIViewController {
-    
-    /* let profileImageViewWidth: CGFloat = 100
-     
-     profileImageView: UIImageView = {
-     let iv = UIImageView()
-     iv.image = #imageLiteral(resourceName: "image-placeholder").withRenderingMode(.alwaysOriginal)
-     iv.contentMode = .scaleAspectFill
-     //iv.layer.cornerRadius = profileImageViewWidth / 2
-     iv.layer.masksToBounds = true
-     return iv
-     }()
-     
-     lazy var profileImageButton: UIButton = {
-     var button = UIButton(type: .system)
-     button.backgroundColor = .clear
-     button.layer.cornerRadius = profileImageViewWidth / 2
-     button.layer.masksToBounds = true
-     button.addTarget(self, action: #selector(profileImageButtonTapped), for: .touchUpInside)
-     return button
-     }()
-     
-     /*fileprivate func setupViews() {
-     screenView.backgroundColor = .white
-     addViews()
-     constrainViews()
-     }
-     
-     fileprivate func addViews() {
-     screenView.addSubview(profileImageView)
-     screenView.addSubview(profileImageButton)
-     }*/
-     
-     fileprivate func constrainViews() {
-     profileImageView.topToSuperview(offset: 36, usingSafeArea: true)
-     profileImageView.centerXToSuperview()
-     profileImageView.width(profileImageViewWidth)
-     profileImageView.height(profileImageViewWidth)
-     
-     profileImageButton.edges(to: profileImageView)
-     }
-     
-     @objc fileprivate func profileImageButtonTapped() {
-     print("Tapped button")
-     showImagePickerControllerActionSheet()
-     }*/
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -79,9 +26,9 @@ class SettingsViewController: UIViewController {
                 let name = data?["name"] as! String
                 let email = Auth.auth().currentUser?.email
                 let levelNumber = (data?["levelNumber"] as! NSNumber).floatValue
-                //  let level = data?["level"] as! String
                 let description = data?["description"] as! String
                 let isCoach = data?["coach"] as! Bool
+                
                 // set fields to data
                 self.txtName.text = name
                 self.txtEmail.text = email
@@ -107,39 +54,22 @@ class SettingsViewController: UIViewController {
                 } else {
                     self.profileImageView.image = UIImage(named: "image-placeholder")
                 }
-              /*  let resource = ImageResource(downloadURL: imageURL)
-                            self.profileImageView.kf.setImage(with: resource, completionHandler: { (result) in
-                                switch result {
-                                case .success(_):
-                                    self.presentAlert(title: "Success", message: "Successfully download image from database")
-                                case .failure(let err):
-                                    self.presentAlert(title: "Error", message: err.localizedDescription)
-                                @unknown default:
-                                    print("It looks like Apple has added a new case here...")
-                                }
-                            })*/
-                
             } else {
                 // default values
                 self.sldLevel.setValue(1.0, animated: true)
-                // self.swtLocation.setOn(false, animated: true)
                 self.swtCoach.setOn(false, animated: true)
             }
         }
-        // Do any additional setup after loading the view.
     }
     
-    // button handling
     @IBAction func handleLogout (_ target: UIButton){
         try! Auth.auth().signOut()
         let vc = self.storyboard?.instantiateViewController(identifier: "menuViewController") as! MenuViewController
-        //navigationController?.pushViewController(vc, animated: true)
         self.present(vc, animated: true, completion: nil)
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         ImagePickerManager().pickImage(self){ image in
-            //here is the image
             self.profileImageView.image = image
         }
     }
@@ -195,6 +125,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func handleApply(_ sender: Any) {
+        
         // get input values
         let name = txtName.text
         let email = txtEmail.text!
@@ -249,49 +180,6 @@ class SettingsViewController: UIViewController {
     
     @IBAction func resetPassButton_Tapped(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(identifier: "forgotPassViewController") as! ForgotPassViewController
-        //navigationController?.pushViewController(vc, animated: true)
         self.present(vc, animated: true, completion: nil)
-        
-        //showImagePickerControllerActionSheet()
     }
-    
-}
-
-extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    /*
-     func showImagePickerControllerActionSheet() {
-     let photoLibraryAction = UIAlertAction(title: "Choose from Library", style: .default) { (action) in
-     self.showImagePickerController(sourceType: .photoLibrary)
-     }
-     let cameraAction = UIAlertAction(title: "Take from Camera", style: .default) { (action) in
-     self.showImagePickerController(sourceType: .camera)
-     }
-     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-     
-     let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
-     alert.addAction(photoLibraryAction)
-     alert.addAction(cameraAction)
-     alert.addAction(cancelAction)
-     
-     }
-     
-     func showImagePickerController(sourceType: UIImagePickerController.SourceType){
-     let imagePickerController = UIImagePickerController()
-     imagePickerController.delegate = self
-     imagePickerController.allowsEditing = true
-     imagePickerController.sourceType = sourceType
-     
-     present(imagePickerController, animated: true, completion: nil)
-     }
-     
-     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-     
-     if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-     self.profileImageView.image = editedImage.withRenderingMode(.alwaysOriginal)
-     } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-     self.profileImageView.image = originalImage.withRenderingMode(.alwaysOriginal)
-     }
-     dismiss(animated: true, completion: nil)
-     }*/
 }

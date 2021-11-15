@@ -1,23 +1,15 @@
-//
-//  ForgotPassViewController.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 16/7/21.
-//  Copyright © 2021 Eshaan Govil. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
 class ForgotPassViewController: UIViewController {
-
+    
     @IBOutlet weak var emailField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-
+    
     @IBAction func forgotPassButton_Tapped(_ sender: Any) {
         let auth = Auth.auth()
         
@@ -26,7 +18,7 @@ class ForgotPassViewController: UIViewController {
                 let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                     print("Ok button tapped")
-                 })
+                })
                 alert.addAction(ok)
                 self.present(alert, animated: true, completion: nil)
                 return
@@ -35,7 +27,7 @@ class ForgotPassViewController: UIViewController {
             let alert = UIAlertController(title: "Successful", message: "A password reset email has been sent!", preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
                 print("Ok button tapped")
-             })
+            })
             alert.addAction(ok)
             self.present(alert, animated: true, completion: nil)
         }

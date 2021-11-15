@@ -1,30 +1,16 @@
-//
-//  SignUpViewController.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 14/10/20.
-//  Copyright © 2020 Eshaan Govil. All rights reserved.
-//
-
 import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController {
     
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
@@ -37,7 +23,6 @@ class SignUpViewController: UIViewController {
         if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields."
         }
-        
         return nil
     }
     
@@ -82,50 +67,26 @@ class SignUpViewController: UIViewController {
                             self.showError("Error saving user data.")
                         }
                     }
-                    // transition to home screen
-//                    ref.observeAuthEventWithBlock({ authData in
-//                        if authData != nil {
-//                            // user authenticated
-//                            print(authData)
-//                            let vc = UsersListView()
-//                            self.navigationController?.pushViewController(vc, animated: true)
-//                        } else {
-//                            // No user is signed in
-//                        }
-//                    })
                     
                     Auth.auth().addStateDidChangeListener { auth, user in
-                      if let user = user {
-                        // User is signed in. Show home screen
-                        //let vc = UsersListView()
-                        let vc = self.storyboard?.instantiateViewController(identifier: "usersListView") as! UINavigationController
-                        //self.navigationController?.pushViewController(vc, animated: true)
-                        self.present(vc, animated: true, completion: nil)
-                        
-                      } else {
-                        // No User is signed in. Show user the login screen
-                        let vc = self.storyboard?.instantiateViewController(identifier: "menuViewController") as! MenuViewController
-                        self.navigationController?.pushViewController(vc, animated: true)
-                      }
+                        if let user = user {
+                            // User is signed in. Show home screen
+                            let vc = self.storyboard?.instantiateViewController(identifier: "usersListView") as! UINavigationController
+                            self.present(vc, animated: true, completion: nil)
+                            
+                        } else {
+                            // No User is signed in. Show user the login screen
+                            let vc = self.storyboard?.instantiateViewController(identifier: "menuViewController") as! MenuViewController
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
                     }
                 }
             }
-            
         }
-        
     }
     
     func showError(_ message: String){
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
-    //    func transitionToHome(){
-    //        let homeViewController = storyboard?.instantiateViewController(identifier: constants.Storyboard.homeViewController) as? HomeViewController
-    //
-    //        view.window?.rootViewController = homeViewController
-    //        view.window?.makeKeyAndVisible()
-    //
-    //    }
-    
 }

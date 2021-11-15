@@ -1,11 +1,3 @@
-//
-//  User.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 21/10/20.
-//  Copyright © 2020 Eshaan Govil. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import CoreLocation

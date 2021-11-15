@@ -1,11 +1,3 @@
-//
-//  ChatViewController.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 6/9/21.
-//  Copyright © 2021 Eshaan Govil. All rights reserved.
-//
-
 import UIKit
 import MessageKit
 import InputBarAccessoryView
@@ -74,7 +66,7 @@ class ChatViewController: MessagesViewController {
         super.viewDidAppear(animated)
         messageInputBar.inputTextView.becomeFirstResponder()
     }
-
+    
     func createNewChat() {
         let users = [self.currentUser.uid, self.otherUserData?.documentId]
         let data: [String: Any] = [
@@ -178,59 +170,57 @@ class ChatViewController: MessagesViewController {
             
         })
     }}
-    
-    
-    extension ChatViewController: InputBarAccessoryViewDelegate{
-        func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-         
-            guard let messageId = createMessageId() else{
-                return
-            }
-            let message = Message(id: messageId, content: text, created: Timestamp(), senderID: self.currentUser.uid, senderName: self.currentUserName)
-                           
-                             insertNewMessage(message)
-                             save(message)
-               
-                             inputBar.inputTextView.text = ""
-                             messagesCollectionView.reloadData()
-                             messagesCollectionView.scrollToBottom(animated: true)
-        }
-        
-        private func createMessageId() -> String?{
-            //date, otherUserEmail, senderEmail
-            let dateString = Self.dateFormatter.string(from: Date())
-            let newIdentifier = "\(otherUserEmail)_\(String(describing: Auth.auth().currentUser?.email))_\(dateString)"
-            print("created message id: \(newIdentifier)")
-            return newIdentifier
-        }
-            
-        // MessagesDisplayDelegate
-            func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-                return isFromCurrentSender(message: message) ? .systemGreen: .lightGray
-            }
 
-            func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
-                let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
-                return .bubbleTail(corner, .curved)
-            }
+
+extension ChatViewController: InputBarAccessoryViewDelegate{
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        
+        guard let messageId = createMessageId() else{
+            return
+        }
+        let message = Message(id: messageId, content: text, created: Timestamp(), senderID: self.currentUser.uid, senderName: self.currentUserName)
+        
+        insertNewMessage(message)
+        save(message)
+        
+        inputBar.inputTextView.text = ""
+        messagesCollectionView.reloadData()
+        messagesCollectionView.scrollToBottom(animated: true)
     }
     
-    extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate{
-        func currentSender() -> SenderType {
-            //return selfSender!
-            return Sender(id: Auth.auth().currentUser!.uid, displayName: self.currentUserName!)
+    private func createMessageId() -> String?{
+        let dateString = Self.dateFormatter.string(from: Date())
+        let newIdentifier = "\(otherUserEmail)_\(String(describing: Auth.auth().currentUser?.email))_\(dateString)"
+        print("created message id: \(newIdentifier)")
+        return newIdentifier
+    }
+    
+    // MessagesDisplayDelegate
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+        return isFromCurrentSender(message: message) ? .systemGreen: .lightGray
+    }
+    
+    func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
+        return .bubbleTail(corner, .curved)
+    }
+}
+
+extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate{
+    func currentSender() -> SenderType {
+        return Sender(id: Auth.auth().currentUser!.uid, displayName: self.currentUserName!)
+    }
+    
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messages[indexPath.section]
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        if messages.count == 0 {
+            print("No messages to display")
+            return 0
+        } else {
+            return messages.count
         }
-        
-        func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-            return messages[indexPath.section]
-        }
-        
-        func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-            if messages.count == 0 {
-                        print("No messages to display")
-                        return 0
-                    } else {
-                        return messages.count
-                    }
-                }
-        }
+    }
+}

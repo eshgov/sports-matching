@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 class DetailsUserViewController: UIViewController {
-
+    
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var detailsUserView: DetailsUserView!
     @IBOutlet weak var userName: UILabel!
@@ -32,15 +32,15 @@ class DetailsUserViewController: UIViewController {
         userDescription.text = "\(userData?.description ?? "User Description.")"
         
         self.mapView.mapType = MKMapType.standard
-      
+        
         let center = CLLocationCoordinate2D(latitude: userData?.location.latitude ?? 0, longitude: userData?.location.longitude ?? 0)
-              let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-              self.mapView.setRegion(region, animated: true)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        self.mapView.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = userData!.location
-            annotation.title = "User's Location"
-            mapView.addAnnotation(annotation)
+        annotation.title = "User's Location"
+        mapView.addAnnotation(annotation)
     }
     
     @IBAction func contactTapped(_ sender: Any) {

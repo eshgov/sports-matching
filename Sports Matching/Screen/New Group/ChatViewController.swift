@@ -55,7 +55,7 @@ class ChatViewController: MessagesViewController {
         // get data from firebase
         let db = Firestore.firestore()
         let uid = Auth.auth().currentUser?.uid
-        let docRef = db.collection("updated").document("\(uid!)")
+        let docRef = db.collection("users").document("\(uid!)")
         docRef.getDocument { (document, error) in
             if document!.exists{
                 let data = document?.data()

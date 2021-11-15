@@ -28,6 +28,7 @@
 		89ADCFF82539A05B00FBF199 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFF72539A05B00FBF199 /* LocationViewController.swift */; };
 		89ADCFFB2539A30300FBF199 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFFA2539A30300FBF199 /* LocationService.swift */; };
 		89C320DB26E64DEE00767946 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C320DA26E64DEE00767946 /* ChatViewController.swift */; };
+		89CCF1902741028B00EF0442 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CCF18F2741028B00EF0442 /* ImagePickerManager.swift */; };
 		89D644C32504C93700B73107 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D644C22504C93700B73107 /* DesignableView.swift */; };
 		89E768ED24F0AE0D00912111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E768EC24F0AE0D00912111 /* AppDelegate.swift */; };
 		89E768EF24F0AE0D00912111 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E768EE24F0AE0D00912111 /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		89ADCFF72539A05B00FBF199 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		89ADCFFA2539A30300FBF199 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		89C320DA26E64DEE00767946 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = "Sports Matching/Screen/New Group/ChatViewController.swift"; sourceTree = SOURCE_ROOT; };
+		89CCF18F2741028B00EF0442 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		89D644C22504C93700B73107 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		89E768E924F0AE0D00912111 /* Sports Matching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sports Matching.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E768EC24F0AE0D00912111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				89ADCFE52539980400FBF199 /* BaseView.swift */,
 				8971F2E426EA4F6D00690EB8 /* Chat */,
 				899D28C825A04CC500A3D5BD /* SettingsViewController.swift */,
+				89CCF18F2741028B00EF0442 /* ImagePickerManager.swift */,
 				899D28CB25A30F6600A3D5BD /* MenuViewController.swift */,
 			);
 			path = Screen;
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				892F3A0326A158CD00CE3AE6 /* ForgotPassViewController.swift in Sources */,
+				89CCF1902741028B00EF0442 /* ImagePickerManager.swift in Sources */,
 				895CDD4A25373C1A00D72474 /* LoginViewController.swift in Sources */,
 				895CDD4825373C0400D72474 /* SignUpViewController.swift in Sources */,
 				89ADCFF225399C9600FBF199 /* UserTableViewCell.swift in Sources */,

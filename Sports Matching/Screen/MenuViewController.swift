@@ -14,7 +14,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        try! Auth.auth().signOut()
         // Do any additional setup after loading the view.
     }
     
@@ -27,7 +27,7 @@ class MenuViewController: UIViewController {
 //            navigationController?.pushViewController(vc, animated: true)
 //        }
         
-      /* Auth.auth().addStateDidChangeListener { auth, user in
+       /*Auth.auth().addStateDidChangeListener { auth, user in
           if let user = user {
             // User is signed in. Show home screen
            // let vc = UsersListView()

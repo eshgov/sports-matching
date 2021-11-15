@@ -41,7 +41,7 @@ class UsersListView: UIViewController{
     
     // var locationManager: CLLocationManager?
     @IBOutlet weak var tableView: UITableView!
-    private var usersCollectionRef: CollectionReference = Firestore.firestore().collection("updated")
+    private var usersCollectionRef: CollectionReference = Firestore.firestore().collection("users")
     private var users = [User]()
     private var userTypeString: String!
     private var isUserCoach: Bool!
@@ -75,7 +75,7 @@ class UsersListView: UIViewController{
                 
                 let db = Firestore.firestore()
                 
-                db.collection("updated").document(self.uid).setData(["latitude":"\(userLatitude)","longitude":"\(userLongitude)"], merge: true)
+                db.collection("users").document(self.uid).setData(["latitude":"\(userLatitude)","longitude":"\(userLongitude)"], merge: true)
                 
                 self.locValue = location
                 
@@ -104,7 +104,7 @@ class UsersListView: UIViewController{
         
         let db = Firestore.firestore()
         
-        let docRef = db.collection("updated").document("\(self.uid!)")
+        let docRef = db.collection("users").document("\(self.uid!)")
         docRef.getDocument { (document, error) in
             if let document = document {
                 if document.exists{
@@ -191,16 +191,35 @@ class UsersListView: UIViewController{
                     let description = data["description"] as? String ?? "Description"
                     let documentId = document.documentID
                     let email = data["email"] as? String ?? "email"
-                    let photoURL = data["imageURL"] as? String ?? ""
+                    let photoURL = data["photoURL"] as? String ?? ""
                     
                     let location = CLLocationCoordinate2D(latitude: (data["latitude"] as? CLLocationDegrees ?? 0), longitude: (data["longitude"] as? CLLocationDegrees ?? 0) )
                    
                     let distance = self.locValue.distance(from: CLLocation(latitude: location.latitude, longitude: location.longitude)) / 1000
                     print(distance)
                     
-                    let newUser = User(image: UIImage(named: "image-placeholder")!, name: name, sport: sport, distance: distance, level: level, description: description, documentId: documentId, isCoach: isCoach, location: location, email: email)
                     
-                    if newUser.isCoach == self.wantCoachView{
+                    let newUser = User(image: UIImage(named: "image-placeholder")!, name: name, sport: sport, distance: distance, level: level, description: description, documentId: documentId, isCoach: isCoach, location: location, email: email, photoURL: photoURL)
+                    
+                    print(photoURL)
+                    
+                    if photoURL != ""{
+                        let path = photoURL
+                        let reference = Storage.storage().reference(forURL: path)
+                        
+                        reference.getData(maxSize: (15 * 1024 * 1024)) { (data, error) in
+                            if let err = error {
+                                print(err)
+                            } else {
+                                if let image  = data {
+                                    let myImage: UIImage! = UIImage(data: image)
+                                    newUser.image = myImage
+                                }
+                            }
+                        }
+                    }
+                    
+                    if newUser.isCoach == self.wantCoachView {
                         self.users.append(newUser)
                         print("User added to table array.")
                     }
@@ -213,29 +232,6 @@ class UsersListView: UIViewController{
         }
     }
 }
-
-
-
-
-
-
-
-
-/*
- print(location)
-
-let getLocation = GetLocation()
-
-getLocation.run {
-    if let location = $0 {
-        self.locValue = location
-        
-    } else {
-        print("Get Location failed \(String(describing: getLocation.didFailWithError))")
-    }
-}
-*/
-
 
 extension UsersListView: UISearchBarDelegate {
     

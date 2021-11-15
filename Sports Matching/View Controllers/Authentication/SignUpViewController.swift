@@ -65,7 +65,17 @@ class SignUpViewController: UIViewController {
                     // User was created succesfully, now store name
                     let db = Firestore.firestore()
                     
-                    db.collection("users").document(result!.user.uid).setData(["name" : name, "email": email,"uid": result!.user.uid]) { (error) in
+                    db.collection("users").document(result!.user.uid).setData([
+                        "name" : name,
+                        "email": email,
+                        "uid": result!.user.uid,
+                        "levelNumber": 0,
+                        "description": "",
+                        "coach": false,
+                        "latitude": 0,
+                        "longitude": 0,
+                        "photoURL": ""
+                    ]) { (error) in
                         
                         if error != nil {
                             // Show error message

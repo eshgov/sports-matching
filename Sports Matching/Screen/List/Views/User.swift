@@ -21,8 +21,9 @@ class User {
     var isCoach: Bool
     var location: CLLocationCoordinate2D
     var email: String
+    var photoURL: String
     
-    init(image: UIImage, name: String, sport: String, distance: Double, level: String, description:String, documentId: String, isCoach: Bool, location: CLLocationCoordinate2D, email: String) {
+    init(image: UIImage, name: String, sport: String, distance: Double, level: String, description:String, documentId: String, isCoach: Bool, location: CLLocationCoordinate2D, email: String, photoURL: String) {
         self.image = image
         self.name = name
         self.sport = sport
@@ -33,5 +34,6 @@ class User {
         self.isCoach = isCoach
         self.location = location
         self.email = email
+        self.photoURL = photoURL
     }
 }

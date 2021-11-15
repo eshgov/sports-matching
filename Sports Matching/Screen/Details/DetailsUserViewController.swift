@@ -25,6 +25,7 @@ class DetailsUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userImage.image = userData?.image
         userName.text = userData?.name ?? "Name"
         userLevel.text = userData?.level ?? "Level"
         userDistance.text = "\(Int(userData?.distance ?? 0)) km"

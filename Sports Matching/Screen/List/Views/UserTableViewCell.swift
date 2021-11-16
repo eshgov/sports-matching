@@ -15,12 +15,13 @@ class UserTableViewCell: UITableViewCell {
             let path = photoURL
             let reference = Storage.storage().reference(forURL: path!)
             
-            reference.getData(maxSize: (15 * 1024 * 1024)) { (data, error) in
+            reference.getData(maxSize: (300 * 1024 * 1024)) { (data, error) in
                 if let err = error {
                     print(err)
                 } else {
                     if let image  = data {
                         let myImage: UIImage! = UIImage(data: image)
+                        //userImageView.sizeToFit()
                         //myImage.resize(withSize: CGSize(width: userImageView.width(), height: userImageView.height()), contentMode: .contentAspectFill)
                         self.userImageView.image = myImage
                     }

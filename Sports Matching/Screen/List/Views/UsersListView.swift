@@ -180,9 +180,13 @@ class UsersListView: UIViewController{
                             if let err = error {
                                 print(err)
                             } else {
-                                if let image  = data {
+                                if let image = data {
                                     let myImage: UIImage! = UIImage(data: image)
-                                    newUser.image = myImage
+                                    if myImage != nil{
+                                        newUser.image = myImage
+                                    } else {
+                                        newUser.image = UIImage(named: "image-placeholder")!
+                                    }
                                 }
                             }
                         }
@@ -218,7 +222,6 @@ extension UsersListView: UISearchResultsUpdating{
         
         filterContentForSearchText(searchText: searchController.searchBar.text!, scope: scope)
     }
-    
 }
 
 public class GetLocation: NSObject, CLLocationManagerDelegate {
@@ -275,6 +278,10 @@ extension UsersListView: UITableViewDataSource, UITableViewDelegate {
         
         cell.setUser(user: currentUser)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 232
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

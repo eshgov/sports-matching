@@ -24,9 +24,7 @@
 		89ADCFE92539985800FBF199 /* DetailsUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFE82539985800FBF199 /* DetailsUserView.swift */; };
 		89ADCFEC25399B1E00FBF199 /* DetailsUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFEB25399B1E00FBF199 /* DetailsUserViewController.swift */; };
 		89ADCFF225399C9600FBF199 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFF125399C9600FBF199 /* UserTableViewCell.swift */; };
-		89ADCFF625399F9800FBF199 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFF525399F9800FBF199 /* LocationView.swift */; };
 		89ADCFF82539A05B00FBF199 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFF72539A05B00FBF199 /* LocationViewController.swift */; };
-		89ADCFFB2539A30300FBF199 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ADCFFA2539A30300FBF199 /* LocationService.swift */; };
 		89C320DB26E64DEE00767946 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C320DA26E64DEE00767946 /* ChatViewController.swift */; };
 		89CCF1902741028B00EF0442 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CCF18F2741028B00EF0442 /* ImagePickerManager.swift */; };
 		89D644C32504C93700B73107 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D644C22504C93700B73107 /* DesignableView.swift */; };
@@ -58,9 +56,7 @@
 		89ADCFE82539985800FBF199 /* DetailsUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserView.swift; sourceTree = "<group>"; };
 		89ADCFEB25399B1E00FBF199 /* DetailsUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUserViewController.swift; sourceTree = "<group>"; };
 		89ADCFF125399C9600FBF199 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		89ADCFF525399F9800FBF199 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		89ADCFF72539A05B00FBF199 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
-		89ADCFFA2539A30300FBF199 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		89C320DA26E64DEE00767946 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = "Sports Matching/Screen/New Group/ChatViewController.swift"; sourceTree = SOURCE_ROOT; };
 		89CCF18F2741028B00EF0442 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		89D644C22504C93700B73107 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -188,26 +184,9 @@
 		89ADCFF325399F5200FBF199 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				89ADCFF425399F6A00FBF199 /* Views */,
 				89ADCFF72539A05B00FBF199 /* LocationViewController.swift */,
 			);
 			path = Location;
-			sourceTree = "<group>";
-		};
-		89ADCFF425399F6A00FBF199 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				89ADCFF525399F9800FBF199 /* LocationView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		89ADCFFC2539AA3D00FBF199 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				89ADCFFA2539A30300FBF199 /* LocationService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		89E768E024F0AE0D00912111 = {
@@ -231,7 +210,6 @@
 		89E768EB24F0AE0D00912111 /* Sports Matching */ = {
 			isa = PBXGroup;
 			children = (
-				89ADCFFC2539AA3D00FBF199 /* Services */,
 				89ADCFE4253997E400FBF199 /* Screen */,
 				895CDD4D25373C3800D72474 /* View Controllers */,
 				8919A36B2535435B001DCC9F /* Storyboards */,
@@ -381,7 +359,6 @@
 				899D28C925A04CC500A3D5BD /* SettingsViewController.swift in Sources */,
 				89ADCFE92539985800FBF199 /* DetailsUserView.swift in Sources */,
 				89E768F124F0AE0D00912111 /* ViewController.swift in Sources */,
-				89ADCFF625399F9800FBF199 /* LocationView.swift in Sources */,
 				89F518C92504FF5800A181B5 /* UIViewController+Extensions.swift in Sources */,
 				8971F2E826EA4FBC00690EB8 /* ChatUser.swift in Sources */,
 				89C320DB26E64DEE00767946 /* ChatViewController.swift in Sources */,
@@ -389,7 +366,6 @@
 				899D28CC25A30F6600A3D5BD /* MenuViewController.swift in Sources */,
 				89ADCFE62539980400FBF199 /* BaseView.swift in Sources */,
 				89E768EF24F0AE0D00912111 /* SceneDelegate.swift in Sources */,
-				89ADCFFB2539A30300FBF199 /* LocationService.swift in Sources */,
 				893901E92540742D00DEA58D /* UsersListView.swift in Sources */,
 				8971F2E626EA4F9D00690EB8 /* Chat.swift in Sources */,
 				893901E72540507300DEA58D /* User.swift in Sources */,

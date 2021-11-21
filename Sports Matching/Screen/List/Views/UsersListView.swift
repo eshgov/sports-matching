@@ -11,12 +11,13 @@ class UsersListView: UIViewController{
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
     
+    
+    // filteredUsers used when filtering users via search bar
     var filteredUsers = [User]()
     
     lazy var searchController: UISearchController = {
         let sc = UISearchController(searchResultsController: nil)
         sc.searchResultsUpdater = self
-        
         sc.obscuresBackgroundDuringPresentation = false
         sc.searchBar.placeholder = "Search..."
         sc.searchBar.sizeToFit()
@@ -42,6 +43,7 @@ class UsersListView: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         
+        // Verifying that the user is still authenticated
         Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user {
                 // User is signed in. Show home screen
@@ -53,6 +55,7 @@ class UsersListView: UIViewController{
             }
         }
         
+        // Obtaining user's current location. getLocation() is a seperate function
         let getLocation = GetLocation()
         
         getLocation.run {
@@ -118,6 +121,8 @@ class UsersListView: UIViewController{
         navigationItem.searchController = searchController
     }
     
+    
+    // Filtered search results
     func filterContentForSearchText(searchText: String, scope: String = "All"){
         filteredUsers = users.filter({ (user: User) -> Bool in
             let doesCategoryMatch = (scope == "All") || (user.level == scope)
@@ -143,6 +148,7 @@ class UsersListView: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Collecting data of all users in Firebase and displaying on tableView.
         usersCollectionRef.getDocuments { (snapshot, error) in
             if let err = error{
                 debugPrint("Error fetching users: \(err)")
@@ -224,6 +230,7 @@ extension UsersListView: UISearchResultsUpdating{
     }
 }
 
+// new class GetLocation
 public class GetLocation: NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     var locationCallback: ((CLLocation?) -> Void)!
@@ -257,6 +264,8 @@ public class GetLocation: NSObject, CLLocationManagerDelegate {
     }
 }
 
+
+// Displaying array data in seperate cells in tableView for each user
 extension UsersListView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

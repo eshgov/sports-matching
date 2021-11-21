@@ -21,8 +21,7 @@ class UserTableViewCell: UITableViewCell {
                 } else {
                     if let image  = data {
                         let myImage: UIImage! = UIImage(data: image)
-                        //userImageView.sizeToFit()
-                        //myImage.resize(withSize: CGSize(width: userImageView.width(), height: userImageView.height()), contentMode: .contentAspectFill)
+                        self.userImageView.layer.cornerRadius = 10
                         self.userImageView.image = myImage
                     }
                 }

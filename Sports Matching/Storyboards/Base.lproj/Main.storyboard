@@ -897,7 +897,6 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="peT-0l-VvW" firstAttribute="leading" secondItem="pOW-KP-Yr4" secondAttribute="leading" id="KpA-Ms-Gbo"/>
-                                            <constraint firstAttribute="trailing" secondItem="peT-0l-VvW" secondAttribute="trailing" id="NF4-qt-H9E"/>
                                             <constraint firstItem="XEg-pg-gef" firstAttribute="top" secondItem="RqL-dO-fLy" secondAttribute="bottom" constant="10" id="Rsq-kd-Cp6"/>
                                         </constraints>
                                     </stackView>
@@ -941,10 +940,10 @@
                         <viewLayoutGuide key="safeArea" id="oXr-7n-BlS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Agv-3u-Vyr" firstAttribute="width" secondItem="TWH-eN-hnZ" secondAttribute="width" multiplier="0.948598" id="Bu2-6i-ptL"/>
+                            <constraint firstItem="Agv-3u-Vyr" firstAttribute="bottom" secondItem="oXr-7n-BlS" secondAttribute="bottom" id="SEp-Yf-b3e"/>
                             <constraint firstItem="Agv-3u-Vyr" firstAttribute="leading" secondItem="oXr-7n-BlS" secondAttribute="leading" id="aP7-cm-Q8P"/>
                             <constraint firstItem="Agv-3u-Vyr" firstAttribute="top" secondItem="oXr-7n-BlS" secondAttribute="top" id="dpG-Ka-lYp"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Agv-3u-Vyr" secondAttribute="bottom" id="f85-Yn-3qa"/>
+                            <constraint firstItem="oXr-7n-BlS" firstAttribute="trailing" secondItem="Agv-3u-Vyr" secondAttribute="trailing" id="mEE-6w-hgp"/>
                         </constraints>
                         <edgeInsets key="layoutMargins" top="0.0" left="50" bottom="0.0" right="50"/>
                     </view>

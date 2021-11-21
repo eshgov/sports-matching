@@ -1,11 +1,3 @@
-//
-//  DetailsUserView.swift
-//  Sports Matching
-//
-//  Created by Eshaan Govil on 16/10/20.
-//  Copyright © 2020 Eshaan Govil. All rights reserved.
-//
-
 import UIKit
 import MapKit
 

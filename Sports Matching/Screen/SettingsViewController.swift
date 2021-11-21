@@ -1,6 +1,5 @@
 import UIKit
 import Firebase
-import TinyConstraints
 
 class SettingsViewController: UIViewController {
     
@@ -36,6 +35,7 @@ class SettingsViewController: UIViewController {
                 self.txtDescription.text = description
                 self.lblName.text = "\(name)"+"'s Profile"
                 self.swtCoach.setOn(isCoach, animated: true)
+          
                 let imageURL = data?["photoURL"]
                 if imageURL as! String != "" {
                     let path = imageURL
@@ -48,6 +48,7 @@ class SettingsViewController: UIViewController {
                             if let image  = data {
                                 let myImage: UIImage! = UIImage(data: image)
                                 self.profileImageView.image = myImage
+                                self.profileImageView.layer.cornerRadius = 10
                             }
                         }
                     }

@@ -30,7 +30,7 @@ class DetailsUserViewController: UIViewController {
         self.mapView.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = userData!.location
+        annotation.coordinate = center
         annotation.title = "User's Location"
         mapView.addAnnotation(annotation)
     }
